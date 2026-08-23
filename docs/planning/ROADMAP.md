@@ -27,20 +27,28 @@ the material, and the material before the machine.
       none taken into scope.
 - [x] **E003 — Consolidate the project orientation.** Requirements, promises, defect classes, scale
       and the open decisions, in one document.
-- [ ] **E004 — Choose the stack.** Gated on the principal. Nothing is chosen, and the charter's §3
-      mechanical table is written as obligations rather than controls until it is.
-- [ ] **E007 — Decide the content format.** One file per term or one per module, and what carries the
-      source and confidence fields charter MT1 and MT2 require. Depends on the stack.
-- [ ] **E005 — Scaffold and the mechanical checks.** Every row of charter §3 created and then pointed
-      at a deliberate violation and observed to fail. A check that has never been seen to fail is a
-      check nobody has tested.
-- [ ] **E006 — Design system and visual tokens.** Gated on the principal. The teaching copy style
-      fixes only that it is flat and that headings are capitalised by the stylesheet.
-- [ ] **E008 — Decide how learner progress is recorded.** Requirement 4 needs the learner to know
-      what they have covered; requirement 5 forbids an account to store it in.
+- [x] **E004 — Choose the stack.** Decided by the principal with the build instruction of 23 August
+      2026: React + Vite + Tailwind, with the quiz engine harvested from the `lemma` repository.
+- [x] **E007 — Decide the content format.** Decided by the principal the same day: hardcoded data
+      files — `src/data/terms.js` for the terms, LEMMA-XML strings for the question bank — with
+      progress in browser localStorage.
+- [ ] **E005 — Scaffold and the mechanical checks.** The app scaffold and the question selfcheck
+      exist; the lint, format and CI rows of charter §3 are still outstanding, and each must be
+      pointed at a deliberate violation and observed to fail before its row counts.
+- [ ] **E006 — Design system and visual tokens.** A first dark navy palette exists in
+      `tailwind.config.js`; not yet ratified by the principal.
+- [x] **E008 — Decide how learner progress is recorded.** localStorage, Leitner-light: strength 0–5
+      per term, no account, and a reset control in the term tracker.
 - [ ] **E009 — Decide the syllabus proposals.** Ten gaps in syllabus §15, accepted or rejected item by
       item. Sale and purchase mechanics is the largest: module 12 names a Braemar desk the syllabus
       never teaches.
+- [x] **E026 — Build the quiz app v0.1.** Directed by the principal on 23 August 2026: barebones and
+      quiz-first. A home page with quiz length and module focus, a one-question-at-a-time runner on
+      the harvested engine (choice, tickbox, true-false, numeric, text-gap, written, reorder,
+      dragdrop), photos from the manifest library in the questions, a term tracker, and progress in
+      localStorage. 66 hand-authored questions plus two generated questions per term and a written
+      full-form question per abbreviation — every one of the 106 terms is trained. `npm run
+      selfcheck` lints the whole bank; the browser smoke test passed clean.
 
 ## Phase 1 — the commercial track
 

@@ -165,6 +165,17 @@ skipping a test, two charter rules in conflict, or anything outward-facing.
 
 ## Build and run
 
-**No application code exists yet, and no stack has been chosen.** The syllabus and the standards
-came first deliberately: the site is a delivery mechanism for material that has to be right before
-anything renders it. The stack decision and the scaffold are ledger items E004 and E005.
+React + Vite + Tailwind, with the quiz engine harvested from the `lemma` repository
+(`src/lib/content/`, treated as vendored: fix bugs, do not restyle). The terms live in
+`src/data/terms.js`, the hand-authored questions in `src/data/bank.js` (LEMMA-XML), and progress in
+browser localStorage — no server, no account.
+
+```
+npm ci                 install the toolchain
+npm run dev            the dev server
+npm run build          production build
+npm run selfcheck      parse and lint every question in the bank
+```
+
+Run `npm run selfcheck` and `npm run build` before every commit that touches the app or the
+question bank. The lint/format/CI rows of charter §3 are still outstanding (E005).
