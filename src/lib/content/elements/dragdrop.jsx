@@ -8,6 +8,10 @@
 //
 // True drag-and-drop (HTML5 DnD): drag a chip from the bank into a gap; drag a placed
 // chip to another gap or back to the bank; click a placed chip to remove it.
+//
+// Tap-to-place (the touch path): HTML5 DnD does not fire on touchscreens, so the same
+// moves are also reachable by taps — tap a bank chip to pick it up (tap again to put it
+// down), tap a gap to place it; tapping a filled gap still clears it.
 
 import { useState } from 'react'
 import InlineMarkup from '../InlineMarkup'
@@ -57,6 +61,7 @@ export function Renderer({ node, value, onChange, disabled, review }) {
   const placedIds = new Set(Object.values(placements))
   const bank = reuse ? chips : chips.filter((c) => !placedIds.has(c.id))
   const [overGap, setOverGap] = useState(null)
+  const [heldChip, setHeldChip] = useState(null) // tap-to-place: the picked-up bank chip id
 
   // A bank chip carries `chip:<id>`; a placed chip carries `gap:<dropId>` so it can be
   // moved between gaps or back to the bank without affecting other gaps (matters in
@@ -66,6 +71,7 @@ export function Renderer({ node, value, onChange, disabled, review }) {
     const next = { ...placements }
     if (!reuse) for (const k of Object.keys(next)) if (next[k] === chipId) delete next[k]   // one gap per chip
     next[dropId] = chipId
+    setHeldChip(null)
     onChange(next)
   }
   const moveGap = (dropId, fromGap) => {
@@ -110,14 +116,15 @@ export function Renderer({ node, value, onChange, disabled, review }) {
                 if (d.startsWith('gap:')) moveGap(f.id, d.slice(4))
                 else if (d.startsWith('chip:')) placeChip(f.id, d.slice(5))
               }}
-              className={`inline-flex items-center justify-center align-middle mx-1 px-2 py-1.5 rounded border-b-2 font-mono text-sm min-w-[4rem] min-h-[2.5rem] transition-colors ${gapClass(f.id)}`}
+              onClick={() => { if (heldChip != null && !placements[f.id]) placeChip(f.id, heldChip) }}
+              className={`inline-flex items-center justify-center align-middle mx-1 px-2 py-1.5 rounded border-b-2 font-mono text-sm min-w-[4rem] min-h-[2.5rem] transition-colors ${heldChip != null && !placements[f.id] && !disabled ? 'cursor-pointer' : ''} ${gapClass(f.id)}`}
             >
               {placements[f.id] ? (
                 <span
                   draggable={!disabled}
                   onDragStart={(e) => e.dataTransfer.setData('text/plain', 'gap:' + f.id)}
                   onClick={() => clearGap(f.id)}
-                  title={disabled ? undefined : 'Drag to move, or click to remove'}
+                  title={disabled ? undefined : 'Drag to move, or tap to remove'}
                   className={disabled ? '' : 'cursor-grab active:cursor-grabbing'}
                 >
                   <InlineMarkup text={chipById[placements[f.id]]?.label ?? '?'} />
@@ -136,15 +143,25 @@ export function Renderer({ node, value, onChange, disabled, review }) {
           <span className="font-mono text-xs text-bone-100/30">drag a chip into a gap above</span>
         ) : (
           bank.map((c) => (
-            <span
+            <button
               key={c.id}
+              type="button"
               draggable={!disabled}
+              disabled={disabled}
               onDragStart={(e) => e.dataTransfer.setData('text/plain', 'chip:' + c.id)}
-              className={`px-3 py-1.5 rounded-lg border bg-neural-800 border-neural-600 text-bone-100/70 hover:border-neural-500 font-mono text-sm transition-colors ${disabled ? '' : 'cursor-grab active:cursor-grabbing'}`}
+              onClick={() => setHeldChip((h) => (h === c.id ? null : c.id))}
+              className={`px-3 py-1.5 rounded-lg border font-mono text-sm transition-colors ${
+                heldChip === c.id
+                  ? 'bg-synapse/15 border-synapse text-bone-50'
+                  : 'bg-neural-800 border-neural-600 text-bone-100/70 hover:border-neural-500'
+              } ${disabled ? '' : 'cursor-grab active:cursor-grabbing'}`}
             >
               <InlineMarkup text={c.label} />
-            </span>
+            </button>
           ))
+        )}
+        {heldChip != null && !disabled && (
+          <span className="font-mono text-xs text-bone-100/40 self-center">now tap a gap</span>
         )}
       </div>
     </div>

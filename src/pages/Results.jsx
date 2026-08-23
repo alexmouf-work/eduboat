@@ -8,7 +8,7 @@ export default function Results({ outcomes, onHome }) {
   const pct = total ? Math.round((right / total) * 100) : 0
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-12">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <header className="mb-8 text-center">
         <div className="text-5xl font-mono text-bone-50">{pct}%</div>
         <p className="mt-2 text-bone-100/60 font-body">

@@ -39,7 +39,7 @@ export default function Quiz({ items, onGraded, onFinish, onAbort }) {
     : undefined
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-10">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
       <div className="flex items-center justify-between mb-6">
         <button
           type="button"
@@ -60,7 +60,7 @@ export default function Quiz({ items, onGraded, onFinish, onAbort }) {
         />
       </div>
 
-      <div className="rounded-xl border border-neural-700 bg-neural-800 p-6">
+      <div className="rounded-xl border border-neural-700 bg-neural-800 p-4 sm:p-6">
         <ContentBody
           body={item.body}
           answers={answers}

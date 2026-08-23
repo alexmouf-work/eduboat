@@ -16,8 +16,8 @@ export default function Terms({ progress, modules, terms, onHome, onProgressClea
   const [confirmReset, setConfirmReset] = useState(false)
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
-      <div className="flex items-center justify-between mb-8">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex items-center justify-between mb-6 sm:mb-8">
         <button
           type="button"
           onClick={onHome}

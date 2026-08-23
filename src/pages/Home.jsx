@@ -12,22 +12,22 @@ export default function Home({ progress, modules, terms, onStart, onTerms, error
   const knownTotal = counts.known + counts.strong
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-12">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-bone-50">Eduboat</h1>
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <header className="mb-8 sm:mb-10">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-bone-50">Eduboat</h1>
         <p className="mt-2 text-bone-100/60 font-body">
           Shipping vocabulary for the Braemar desk — {terms.length} terms across {modules.length} modules.
         </p>
       </header>
 
-      <section className="grid grid-cols-4 gap-3 mb-10">
+      <section className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 sm:mb-10">
         <Stat label="New" value={counts.new} tone="text-bone-100/60" />
         <Stat label="Learning" value={counts.learning} tone="text-synapse" />
         <Stat label="Known" value={counts.known} tone="text-axon" />
         <Stat label="Strong" value={counts.strong} tone="text-axon" />
       </section>
 
-      <section className="rounded-xl border border-neural-700 bg-neural-800 p-6 mb-6">
+      <section className="rounded-xl border border-neural-700 bg-neural-800 p-4 sm:p-6 mb-6">
         <h2 className="text-sm font-mono uppercase tracking-widest text-bone-100/50 mb-4">Start a quiz</h2>
 
         <div className="mb-4">
@@ -38,7 +38,7 @@ export default function Home({ progress, modules, terms, onStart, onTerms, error
                 key={n}
                 type="button"
                 onClick={() => setLength(n)}
-                className={`px-5 py-2 rounded-lg border font-mono text-sm transition-colors ${
+                className={`flex-1 sm:flex-none px-5 py-2.5 rounded-lg border font-mono text-sm transition-colors ${
                   length === n
                     ? 'bg-synapse/15 border-synapse text-bone-50'
                     : 'bg-neural-900 border-neural-600 text-bone-100/70 hover:border-neural-500'
