@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { QUIZ_LENGTHS } from '../lib/quiz.js'
 import { bucketCounts } from '../lib/progress.js'
 
-export default function Home({ progress, modules, terms, onStart, onTerms, error }) {
+export default function Home({ progress, modules, terms, onStart, onLearn, onTerms, error }) {
   const [length, setLength] = useState(QUIZ_LENGTHS[1])
   const [moduleId, setModuleId] = useState('')
   const counts = bucketCounts(progress, terms)
@@ -72,6 +72,13 @@ export default function Home({ progress, modules, terms, onStart, onTerms, error
           className="w-full py-3 rounded-lg bg-synapse text-neural-900 font-semibold hover:bg-synapse/90 transition-colors"
         >
           Start quiz
+        </button>
+        <button
+          type="button"
+          onClick={() => onLearn(length, moduleId || null)}
+          className="w-full mt-3 py-3 rounded-lg border border-synapse text-synapse font-semibold hover:bg-synapse/10 transition-colors"
+        >
+          Learn — flip cards
         </button>
         {error && (
           <p className="mt-3 text-sm text-myelin font-body">Could not start the quiz: {error}</p>

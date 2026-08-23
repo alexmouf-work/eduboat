@@ -25,3 +25,4 @@ E023,Worked example arithmetic tests,4,OPEN,HIGH,E005,,R3 DC4,,2026-08-23,2026-0
 E024,Charter tripwires one per defect class,4,OPEN,MEDIUM,E005,,DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10,,2026-08-23,2026-08-23,Each lands with the code it guards; none exists yet and the charter says so
 E025,Offline reading,4,OPEN,LOW,E005,,R6 R9,,2026-08-23,2026-08-23,It will be read on a phone and on the underground
 E026,Build the quiz app v0.1,0,DONE,HIGH,E004 E007,,R1 R4 R5 R8 R9,,2026-08-23,2026-08-23,Home + configurable quiz + term tracker; 66 hand and 236 generated questions over all 106 terms; photos from the manifest library
+E027,Learn mode flip cards,0,DONE,HIGH,E026,,R1 R4 R9,,2026-08-23,2026-08-23,Term on the front with its photo; definition and full form on the back; self-marked into the same Leitner strength the quiz feeds

@@ -68,3 +68,27 @@ export function toItem(question) {
   const item = parseItem(question.xml)
   return { ...item, id: question.id, termIds: question.termIds }
 }
+
+/** Weighted draw of `count` TERMS for learn mode (flip cards) — same weakest-first
+ *  weighting as the quiz, sampling terms directly rather than questions. */
+export function drawLearnTerms(terms, progress, count) {
+  const candidates = terms.map((t) => ({ t, w: STRENGTH_MAX + 1 - strengthOf(progress, t.id) }))
+  const picked = []
+  let guard = 0
+  while (picked.length < count && candidates.length > 0 && guard < POOL_DRAW_MAX) {
+    guard += 1
+    const total = candidates.reduce((s, c) => s + c.w, 0)
+    let roll = Math.random() * total
+    let at = candidates.length - 1
+    for (let i = 0; i < candidates.length; i++) {
+      roll -= candidates[i].w
+      if (roll <= 0) {
+        at = i
+        break
+      }
+    }
+    picked.push(candidates[at].t)
+    candidates.splice(at, 1)
+  }
+  return picked
+}

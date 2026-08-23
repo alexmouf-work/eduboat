@@ -49,6 +49,11 @@ the material, and the material before the machine.
       localStorage. 66 hand-authored questions plus two generated questions per term and a written
       full-form question per abbreviation — every one of the 106 terms is trained. `npm run
       selfcheck` lints the whole bank; the browser smoke test passed clean.
+- [x] **E027 — Learn mode, flip cards.** Directed by the principal on 23 August 2026. The same
+      length and module controls as the quiz start a card session: the term and its photo on the
+      front, tap to flip, the definition and full form on the back, then a self-mark — "Knew it"
+      and "Still learning" move the same Leitner strength the quiz feeds, so the tracker sees both
+      modes. Verified under iPhone touch emulation end to end.
 
 ## Phase 1 — the commercial track
 
