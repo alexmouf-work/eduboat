@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Never committed. A private repository is not a reason to relax this.
+.env
+.env.*
+
+# Local working state: caches, logs, screenshots.
+.dev/

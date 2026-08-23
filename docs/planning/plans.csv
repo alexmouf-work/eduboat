@@ -1,0 +1,26 @@
+id,title,phase,status,priority,depends_on,gated_on,serves,plan_doc,created,updated,notes
+E001,Bring the charter and writing standards across generalised,0,DONE,HIGH,,,PR1 PR2 PR3 DC1 DC2,docs/charter/CHARTER.md,2026-08-23,2026-08-23,Directive 1 changed to truthfulness of the material and section 4.9 added to give it force
+E002,Write the syllabus from the supplied term list,0,DONE,HIGH,,,R1 R3 DC1,docs/curriculum/syllabus.md,2026-08-23,2026-08-23,106 terms across 12 modules; ten gaps proposed in section 15 and none in scope
+E003,Consolidate the project orientation,0,DONE,HIGH,E001 E002,,R1 R5,docs/planning/OVERVIEW.md,2026-08-23,2026-08-23,Requirements promises defect classes and scale in one document
+E004,Choose the stack,0,OPEN,HIGH,,principal,R6 R8 R9,,2026-08-23,2026-08-23,Nothing is chosen; the charter section 3 table is written as obligations because of it
+E005,Scaffold and the mechanical checks,0,OPEN,HIGH,E004 E007,,DC3 DC6 DC7 DC8 DC9 DC10,,2026-08-23,2026-08-23,Every row of charter section 3 must be pointed at a deliberate violation and seen to fail
+E006,Design system and visual tokens,0,OPEN,MEDIUM,E004,principal,R9,,2026-08-23,2026-08-23,Teaching copy style fixes only that it is flat and headings are capitalised by the stylesheet
+E007,Decide the content format,0,OPEN,HIGH,E004,principal,R2 R7 R8,,2026-08-23,2026-08-23,One file per term or one per module and what carries the source and confidence fields
+E008,Decide how learner progress is recorded,0,OPEN,MEDIUM,E004,principal,R4 R5,,2026-08-23,2026-08-23,Requirement 4 needs progress and requirement 5 forbids an account to hold it
+E009,Decide the syllabus proposals,0,OPEN,MEDIUM,E002,principal,R1,,2026-08-23,2026-08-23,Ten gaps listed in syllabus section 15; accepted or rejected item by item
+E010,Module 1 the parties,1,OPEN,HIGH,E005 E007,,R1 R2 PR1,,2026-08-23,2026-08-23,Four roles and why they are four different companies
+E011,Module 2 the desk,1,OPEN,HIGH,E010,,R1 R2 PR3,,2026-08-23,2026-08-23,The fixture sequence; the learner must know when a binding contract exists
+E012,Module 3 charter contract types,1,OPEN,HIGH,E011,,R1 R2,,2026-08-23,2026-08-23,The who-pays-what table is the thing to memorise
+E013,Module 4 voyage charter economics,1,OPEN,HIGH,E012,,R1 R2 R3 PR3,,2026-08-23,2026-08-23,Two worked examples: a laytime statement and a Worldscale conversion
+E014,Module 5 time charter mechanics,1,OPEN,HIGH,E012,,R1 R2 R3,,2026-08-23,2026-08-23,Worked example: a speed and consumption performance claim
+E015,Module 6 money and measures,1,OPEN,HIGH,E013 E014 E020,,R1 R2 R3 DC4,,2026-08-23,2026-08-23,The keystone; the full time charter equivalent worked end to end
+E016,Module 11 paper insurance and compliance,1,OPEN,MEDIUM,E012,,R1 R2,,2026-08-23,2026-08-23,Three functions of a bill of lading as three legal consequences
+E017,Module 7 dimensions and loading,2,OPEN,HIGH,E005 E007,,R1 R2 R3 DC4,,2026-08-23,2026-08-23,Two worked examples: stowage factor and the load line marks on a real routing
+E018,Module 8 vessel classes,2,OPEN,MEDIUM,E017,,R1 R2,,2026-08-23,2026-08-23,Classes named after their constraints not their sizes
+E019,Module 9 canals and chokepoints,2,OPEN,MEDIUM,E017 E018,,R1 R2 PR6 DC5,,2026-08-23,2026-08-23,Every figure dated; the Panama restriction is varies by construction
+E020,Module 10 ballast and cargo operations,2,OPEN,MEDIUM,E017,,R1 R2,,2026-08-23,2026-08-23,The ballast leg is what connects this module to the time charter equivalent
+E021,Module 12 Braemar,3,OPEN,MEDIUM,E015 E016,principal,R1 R10,,2026-08-23,2026-08-23,Describes a real firm; charter MT1 without exception and nothing from memory
+E022,Content tests for sourcing confidence and coverage,4,OPEN,HIGH,E005 E007,,R1 R2 PR1 PR4 DC1 DC6,,2026-08-23,2026-08-23,Charter section 5.2 obligations 1 and 2; drift in either direction fails
+E023,Worked example arithmetic tests,4,OPEN,HIGH,E005,,R3 DC4,,2026-08-23,2026-08-23,Computed in the test never asserted against the published figure
+E024,Charter tripwires one per defect class,4,OPEN,MEDIUM,E005,,DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10,,2026-08-23,2026-08-23,Each lands with the code it guards; none exists yet and the charter says so
+E025,Offline reading,4,OPEN,LOW,E005,,R6 R9,,2026-08-23,2026-08-23,It will be read on a phone and on the underground
